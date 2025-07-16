@@ -18,6 +18,7 @@ function App() {
       setPosi((prevPosi) => prevPosi + 5);
     }
   };
+  
 
   // useEffect to bind/unbind the keydown event
   useEffect(() => {
