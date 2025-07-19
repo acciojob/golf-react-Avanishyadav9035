@@ -6,40 +6,33 @@ function App() {
   const [posi, setPosi] = useState(0);
 
   const ballPosition = { 
-    left: `${posi}px `
+    left: `${posi}px`
   };
 
-  // Button click handler
   const buttonClickHandler = () => {
     setRenderBall(true);
   };
 
-  // Key press event handler
   const handleKeyDown = (event) => {
-    if (event.key === "ArrowRight") {
+    if (event.key === "ArrowRight" || event.keyCode === 39) {
       setPosi((prevPosi) => prevPosi + 5);
     }
   };
-  
 
-  // useEffect to bind/unbind the keydown event
   useEffect(() => {
     if (renderBall) {
       document.addEventListener("keydown", handleKeyDown);
     }
-
-    // Cleanup event listener on unmount
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [renderBall]);
 
-  // Conditional render
   const renderBallOrButton = () => {
     if (renderBall) {
       return <div className="ball" style={ballPosition}></div>;
     } else {
-      return <button onClick={buttonClickHandler}>Start</button>;
+      return <button className="start" onClick={buttonClickHandler}>Start</button>;
     }
   };
 
