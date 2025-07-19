@@ -5,7 +5,9 @@ function App() {
   const [renderBall, setRenderBall] = useState(false);
   const [posi, setPosi] = useState(0);
 
-  const ballPosition = { left: `${posi}px` };
+  const ballPosition = { 
+    left: `${posi}px `
+  };
 
   // Button click handler
   const buttonClickHandler = () => {
